@@ -2,12 +2,13 @@
 
 #pragma once
 
-#include "TankAimingComponent.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
-class UTankBarrel; //Forward declaration
+//Forward declaration
+class UTankAimingComponent; 
+class UTankBarrel;
 
 UCLASS()
 class TANKBATTLE_API ATank : public APawn
@@ -17,9 +18,6 @@ class TANKBATTLE_API ATank : public APawn
 private:
 	// Sets default values for this pawn's properties
 	ATank();
-
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -37,6 +35,6 @@ public:
 	void AimAt(FVector Hitlocation);
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel * BarrelToSet);
+	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
 };

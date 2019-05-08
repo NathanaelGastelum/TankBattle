@@ -26,11 +26,16 @@ private:
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 4000.0;
 
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float ReloadTimeInSeconds = 3;
+
 	UPROPERTY(EditAnywhere, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBluePrint;
 
 	//Local Barrel reference for spawning projectiles
 	UTankBarrel* Barrel = nullptr;
+
+	double LastFireTime = 0;
 
 protected:
 	// Called when the game starts or when spawned

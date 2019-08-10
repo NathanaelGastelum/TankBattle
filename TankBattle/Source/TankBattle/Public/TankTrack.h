@@ -20,5 +20,5 @@ public:
 	
 	// Max force per track in newtons
 	UPROPERTY(EditDefaultsOnly)
-	float TrackMaxDrivingForce = 336000;// Taken from M4 Sherman Ford V8 power output
+	float TrackMaxDrivingForce = 33600000;// Taken from M4 Sherman Ford V8 power output
 };

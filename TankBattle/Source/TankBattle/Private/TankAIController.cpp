@@ -10,7 +10,7 @@ void ATankAIController::BeginPlay()
 	Super::BeginPlay();
 
 }
-
+ 
 // Called every frame
 void ATankAIController::Tick(float DeltaTime)
 {

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copywrite ABAP Studios
 
 #pragma once
 
@@ -27,10 +27,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Input)
 	void IntendTurnRight(float Throw);
 
-	// TODO check best protection of this method
-	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
-
 private:
+	// Called from pathfinding logic by AI controllers
+	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
+	
 	UTankTrack* LeftTrack = nullptr;
 	UTankTrack* RightTrack = nullptr; 
 };

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copywrite ABAP Studios
 
 #include "TankMovementComponent.h"
 #include "TankTrack.h"

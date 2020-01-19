@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copywrite ABAP Studios
 
 #pragma once
 
@@ -24,24 +24,21 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
-	float LaunchSpeed = 4000.0;
-
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
-	float ReloadTimeInSeconds = 3;
-
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBluePrint;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	float LaunchSpeed = 4000.0;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	float ReloadTimeInSeconds = 3;
+
 	//Local Barrel reference for spawning projectiles
-	UTankBarrel* Barrel = nullptr;
+	UTankBarrel* Barrel = nullptr;// TODO Remove
 
 	double LastFireTime = 0;
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
 	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
@@ -49,12 +46,6 @@ protected:
 	UTankMovementComponent* TankMovementComponent = nullptr;
 
 public:	
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetTurretReference(UTankTurret* TurretToSet);
-
 	void AimAt(FVector Hitlocation);
 
 	UFUNCTION(BlueprintCallable)

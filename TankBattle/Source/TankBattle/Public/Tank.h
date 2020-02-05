@@ -32,7 +32,7 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 3;
-
+	
 	//Local Barrel reference for spawning projectiles
 	UTankBarrel* Barrel = nullptr;// TODO Remove
 
@@ -44,6 +44,9 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly)
 	UTankMovementComponent* TankMovementComponent = nullptr;
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 public:	
 	void AimAt(FVector Hitlocation);

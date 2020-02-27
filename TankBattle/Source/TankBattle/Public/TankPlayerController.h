@@ -8,6 +8,7 @@
 #include "TankPlayerController.generated.h" // Must be the last include
 
 class ATank;
+class UTankTankAimingComponent;
 
 /**
  * 
@@ -25,6 +26,10 @@ public:
 protected:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank* GetControlledTank() const;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
+
 
 private:	
 	//Starts moving the barrel to line it up with where the crosshair intersects with the world

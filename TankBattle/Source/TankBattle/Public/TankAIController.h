@@ -7,7 +7,8 @@
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
-class ATank;
+// Forward declarations
+class UTankAimingComponent;
 
 /**
  * 
@@ -17,6 +18,11 @@ class TANKBATTLE_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
 	
+protected:
+
+	UPROPERTY(BlueprintReadOnly)
+	UTankAimingComponent* TankAimingComponent = nullptr;
+
 public:
 	virtual void Tick(float DeltaTime) override;
 

@@ -5,9 +5,10 @@
 #include "CoreMinimal.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
+#include "TankAimingComponent.h"
 #include "TankPlayerController.generated.h" // Must be the last include
 
-class ATank;
+// Forward declarations
 class UTankTankAimingComponent;
 
 /**
@@ -24,12 +25,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-	ATank* GetControlledTank() const;
-
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
-
 
 private:	
 	//Starts moving the barrel to line it up with where the crosshair intersects with the world

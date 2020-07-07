@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankAimingComponent.h"
+#include "Engine/World.h"
 #include "TankBarrel.h"
 #include "TankTurret.h"
 
@@ -15,13 +16,19 @@ UTankAimingComponent::UTankAimingComponent()
 	// ... 
 }
 
+void UTankAimingComponent::BeginPlay()
+{
+	//Super::BeginPlay(); // Needed for BP BeginPlay to run.
+
+}
+
 void UTankAimingComponent::Initialize(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
 {
 	Barrel = BarrelToSet;
 	Turret = TurretToSet;
 }
 
-void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
+void UTankAimingComponent::AimAt(FVector OutHitLocation)
 {
 
 	if (!ensure(Barrel)) { return; }
@@ -48,7 +55,6 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed)
 		MoveBarrelTowards(AimDirection);
 		MoveTurretTowards(AimDirection);
 	}
-
 }
 
 void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection) 

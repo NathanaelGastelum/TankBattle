@@ -29,6 +29,6 @@ void ATankAIController::Tick(float DeltaTime)
 	auto AimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
 	AimingComponent->AimAt(PlayerTank->GetActorLocation());
 
-	//TODO fix Fire()
-	// ControlledTank->Fire(); //TODO limit firing rate
+
+	AimingComponent->Fire(); 
 }
